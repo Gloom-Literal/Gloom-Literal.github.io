@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iosipov A. webGPU test</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="menu">
+            <h1>Iosipov A. WebGPU test</h1>
+            <div class="control-section">
+                <h2>Motion Control</h2>
+                <label>
+                    <input type="checkbox" name="motionX" value="animation" /> Rotating by X
+                </label>
+                <label>
+                    <input type="checkbox" name="motionY" value="animation" /> Rotating by Y
+                </label>
+                <label>
+                    <input type="checkbox" name="motionZ" value="animation" /> Rotating by Z
+                </label>
+                </label>
+                <label>
+                    <input type="button" name="reset" value="Reset camera" />
+                </label>
+            </div>
+            <div class="parameters-section">
+                <h2>Set Parameters</h2>
+                <label>
+                    <input type="checkbox" name="gravity" value="gravity" />
+                    Gravity
+                </label>
+                <label>
+                    <input type="checkbox" name="sin" value="sin" /> Sin moving
+                </label>
+            </div>
+        </div>
+        <div class="canvas-container">
+            <canvas id="canvas-webgpu"></canvas>
+            <script src="src/main.js" type="module"></script>
+        </div>
+    </div>
+</body>
+
+</html>
