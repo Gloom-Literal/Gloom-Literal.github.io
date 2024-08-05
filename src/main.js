@@ -89,10 +89,7 @@ const main = async () => {
   const context = canvas.getContext("webgpu");
 
   const devicePixelRatio = window.devicePixelRatio || 1;
-  const size = [
-    canvas.clientWidth * devicePixelRatio,
-    canvas.clientHeight * devicePixelRatio,
-  ];
+  const size = [canvas.clientWidth, canvas.clientHeight];
 
   const format = navigator.gpu.getPreferredCanvasFormat(); // формат данных в которых храняться пиксели в физическом устройстве
 
@@ -225,11 +222,7 @@ const main = async () => {
   let textureView = context.getCurrentTexture().createView();
 
   let depthTexture = device.createTexture({
-    size: [
-      canvas.clientWidth * devicePixelRatio,
-      canvas.clientHeight * devicePixelRatio,
-      1,
-    ],
+    size: [canvas.width, canvas.height, 1],
     format: "depth24plus",
     usage: GPUTextureUsage.RENDER_ATTACHMENT,
   });
@@ -240,7 +233,7 @@ const main = async () => {
         view: textureView,
         clearValue: { r: 0.5, g: 0.5, b: 0.5, a: 1.0 },
         loadOp: "clear",
-        storeOp: "store", //ХЗ
+        storeOp: "store",
       },
     ],
     depthStencilAttachment: {
@@ -317,7 +310,7 @@ const main = async () => {
   });
 
   const workBuffer_A = device.createBuffer({
-    label: "work buffer",
+    label: "work buffer A",
     size: gridVertices.byteLength,
     usage:
       GPUBufferUsage.STORAGE |
@@ -328,7 +321,7 @@ const main = async () => {
   device.queue.writeBuffer(workBuffer_A, 0, gridVertices);
 
   const workBuffer_B = device.createBuffer({
-    label: "work buffer",
+    label: "work buffer B",
     size: gridVertices.byteLength,
     usage:
       GPUBufferUsage.STORAGE |
