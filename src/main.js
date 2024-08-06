@@ -314,6 +314,7 @@ const main = async () => {
     size: gridVertices.byteLength,
     usage:
       GPUBufferUsage.STORAGE |
+      GPUBufferUsage.UNIFORM |
       GPUBufferUsage.COPY_SRC |
       GPUBufferUsage.COPY_DST,
   });
@@ -325,6 +326,7 @@ const main = async () => {
     size: gridVertices.byteLength,
     usage:
       GPUBufferUsage.STORAGE |
+      GPUBufferUsage.UNIFORM |
       GPUBufferUsage.COPY_SRC |
       GPUBufferUsage.COPY_DST,
   });
